@@ -1,0 +1,41 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  background-color: #2c3e50;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  z-index: 999;
+}
+
+.header__content {
+  display: flex;
+}
+
+.header__content {
+  display: flex;
+  margin: 0 auto;
+  color: #4201ff;
+  padding: 5px;
+}
+
+.header__content > p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    min-width: 250px !important;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid black;
+    padding: 0;
+    width: 100%;
+    z-index: 999;
+  }
+}

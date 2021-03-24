@@ -1,0 +1,15 @@
+.app {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-color: #dfe2eb;
+  height: 100vh;
+}
+
+.app__body {
+  display: flex;
+  background-color: #fbfbfb;
+  margin-top: -50px;
+  height: 90vh;
+  width: 90vw;
+}

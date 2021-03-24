@@ -1,0 +1,38 @@
+.moviecard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 0 1 calc(25% - 1em);
+}
+.moviecard__thumbnail {
+  margin-right: 50px;
+}
+
+.moviecard__title {
+  margin: 15px 50px 0 0;
+  align-items: flex-start !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.moviecard__thumbnail > img {
+  width: 100%;
+  max-width: 250px;
+  object-fit: cover;
+  padding: 20px;
+}
+.large > img {
+  min-width: 550px !important;
+}
+
+.moviecard__description {
+  display: flex;
+  flex-direction: column;
+}
+
+.moviecard__description > p {
+  margin-bottom: 50px;
+}
+
+.moviecard__icon {
+  display: flex;
+}

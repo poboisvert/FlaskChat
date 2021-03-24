@@ -1,0 +1,46 @@
+.inputOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.inputOption > a {
+  outline: none;
+  text-decoration: none !important;
+  color: white;
+}
+
+.inputOption:hover {
+  background-color: #34495e;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.inputOption__title {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.inputOption__icon {
+  height: 25px !important;
+  width: 25px !important;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .inputOption {
+    padding: 5px 2px 5px 2px;
+  }
+  .inputOption__icon {
+    height: 15px !important;
+    width: 15px !important;
+  }
+  .inputOption__title {
+    font-size: 6px;
+    font-weight: 400;
+  }
+}

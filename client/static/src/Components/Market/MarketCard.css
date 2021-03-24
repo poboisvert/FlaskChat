@@ -1,0 +1,48 @@
+.marketcard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 0 1 calc(25% - 0.8em);
+}
+
+.marketcard__content {
+  display: flex;
+  flex: 0.65;
+  flex-direction: column;
+}
+
+.marketcard__thumbnail {
+  margin-right: 50px;
+  align-items: center;
+  margin: 0 auto;
+  flex: 0.35;
+}
+
+.marketcard__title {
+  margin-top: 20px;
+  align-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.marketcard__thumbnail > img {
+  width: 100%;
+  max-width: 250px;
+  object-fit: cover;
+  padding: 20px;
+}
+.large > img {
+  min-width: 550px !important;
+}
+
+.marketcard__description {
+  display: flex;
+  flex-direction: column;
+}
+
+.marketcard__description > p {
+  margin-bottom: 50px;
+}
+
+.marketcard__icon {
+  display: flex;
+}
