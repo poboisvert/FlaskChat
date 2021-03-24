@@ -28,6 +28,10 @@ $ npm install
 
 ### Run Back-End
 
+If virtual env:
+
+> source venv/bin/activate
+
 ```sh
 $ python3 manage.py
 ```
