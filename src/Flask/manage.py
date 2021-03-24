@@ -22,9 +22,11 @@ def create_tables():
 
 jwt = JWT(app, authenticate, identity)  # /auth
 
-# Routing
+# Market - Routing
 api.add_resource(Market, '/market/<string:name>')
 api.add_resource(MarketList, '/markets')
+
+# Routing - User 
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':

@@ -9,14 +9,14 @@ import { useHistory } from "react-router-dom";
 import Manager from "../Manager/Manager";
 
 function Market() {
-  const [movies, setMovies] = useState([]);
+  const [markets, setMarkets] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
-    fetch("/movies").then((response) =>
+    fetch("/markets").then((response) =>
       response.json().then((data) => {
         // console.log(data.movies);
-        setMovies(data.movies);
+        setMarkets(data.markets);
       })
     );
   }, []);
@@ -43,7 +43,7 @@ function Market() {
       </div>
       <div className="market__container">
         <div className="market__items">
-          <MarketCard movies={movies} />
+          <MarketCard markets={markets} />
         </div>
         <Manager />
       </div>
