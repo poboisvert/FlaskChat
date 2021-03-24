@@ -1,8 +1,8 @@
 #import sqlite3
 from db import db
 
-class MovieModel(db.Model):
-    __tablename__ = 'movies'
+class MarketModel(db.Model):
+    __tablename__ = 'markets'
 
     # Database variables
     id = db.Column(db.Integer, primary_key=True)

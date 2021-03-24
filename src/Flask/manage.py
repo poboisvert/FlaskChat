@@ -5,7 +5,7 @@ from flask_script import Manager
 
 from security import authenticate, identity
 from resources.user import UserRegister
-from resources.movie import Movie, MovieList
+from resources.market import Market, MarketList
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -23,8 +23,8 @@ def create_tables():
 jwt = JWT(app, authenticate, identity)  # /auth
 
 # Routing
-api.add_resource(Movie, '/movie/<string:name>')
-api.add_resource(MovieList, '/movies')
+api.add_resource(Market, '/market/<string:name>')
+api.add_resource(MarketList, '/markets')
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
