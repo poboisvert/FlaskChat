@@ -1,8 +1,11 @@
+# Generic
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 from flask_script import Manager
 
+
+# Authentification
 from security import authenticate, identity
 from resources.user import UserRegister
 from resources.market import Market, MarketList

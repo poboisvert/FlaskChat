@@ -44,7 +44,7 @@
   color: white;
   font-size: 20px;
   border: 0;
-  background-color: #41b681;
+  background-color: #778beb;
 }
 
 .login > form > button:hover {
@@ -60,7 +60,7 @@
 }
 
 .alert-danger {
-  color: #842029;
+  color: ##fff;
   background-color: #d697af;
   border-color: #f5c2c7;
 }
