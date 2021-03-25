@@ -20,6 +20,7 @@ const Login = (props) => {
   const checkBtn = useRef();
 
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -34,33 +35,88 @@ const Login = (props) => {
     setPassword(password);
   };
 
-  const handleLogin = (e) => {
+  //
+  //
+  // register  account - Route
+  //
+  //
+  const handleRegister = (e) => {
+    console.log(password);
+    console.log(email);
+    console.log(username);
+
     e.preventDefault();
 
+    // Clear message & Activate loading
     setMessage("");
     setLoading(true);
 
+    // Validate all field
     form.current.validateAll();
 
+    // If no errors
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
+      // Call BackEnd Hook
+      AuthService.register(username, email, password).then(
         () => {
+          // Forward to home page
           props.history.push("/");
+          // Refresh page
           window.location.reload();
         },
         (error) => {
+          // Aggregate to generate the error message
+          console.log(error);
+          // Turn off loading and set message
+          setLoading(false);
+          setMessage("");
+        }
+      );
+    } else {
+      // No longer loading
+      setLoading(false);
+    }
+  };
+  //
+  //
+  // Sign in an existing account - Route
+  //
+  //
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Clear message & Activate loading
+    setMessage("");
+    setLoading(true);
+
+    // Validate all field
+    form.current.validateAll();
+
+    // If no errors
+    if (checkBtn.current.context._errors.length === 0) {
+      // Call BackEnd Hook
+      AuthService.login(username, password).then(
+        () => {
+          // Forward to home page
+          props.history.push("/");
+          // Refresh page
+          window.location.reload();
+        },
+        (error) => {
+          // Aggregate to generate the error message
           const resMessage =
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
             error.toString();
-
+          // Turn off loading and set message
           setLoading(false);
           setMessage(resMessage);
         }
       );
     } else {
+      // No longer loading
       setLoading(false);
     }
   };
@@ -69,7 +125,6 @@ const Login = (props) => {
     <div className="container">
       <div className="login">
         <img src="icon.svg" alt="Logo" />
-
         <Form onSubmit={handleLogin} ref={form}>
           <Input
             type="text"
@@ -79,6 +134,13 @@ const Login = (props) => {
             value={username}
             onChange={onChangeUsername}
             validations={[required]}
+          />
+          <Input
+            type="text"
+            placeholder="Email - Not Mandatory to Sign In"
+            className="form-control"
+            name="email"
+            value={email}
           />
 
           <Input
@@ -108,6 +170,8 @@ const Login = (props) => {
             </div>
           )}
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
+
+          <span onClick={handleRegister}>Register</span>
         </Form>
       </div>
     </div>

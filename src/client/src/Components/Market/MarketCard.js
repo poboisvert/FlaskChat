@@ -1,25 +1,25 @@
 import React from "react";
 import "./MarketCard.css";
 
-export const MarketCard = ({ movies }) => {
+export const MarketCard = ({ markets }) => {
   // console.log(data);
   //return <div>{movies.length}</div>;
 
   return (
     <>
-      {movies.map((movie) => {
+      {markets.map((market) => {
         return (
           <div className="marketcard">
             <div className="marketcard__thumbnail">
-              <img src={movie.baseURL} alt="" />
+              <img src={market.baseURL} alt="" />
             </div>
             <div className="marketcard__content">
-              <div className="marketcard__title">{movie.title}</div>
+              <div className="marketcard__title">{market.title}</div>
               <div className="marketcard__description">
                 <p>
-                  Published: {movie.year} | Rated: {movie.rating}
+                  Published: {market.year} | Rated: {market.rating}
                 </p>
-                <p>{movie.describe}</p>
+                <p>{market.describe}</p>
                 <div className="marketcard__icon"></div>
               </div>
             </div>

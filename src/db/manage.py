@@ -1,8 +1,11 @@
+# Generic
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 from flask_script import Manager
 
+
+# Authentification
 from security import authenticate, identity
 from resources.user import UserRegister
 from resources.market import Market, MarketList
@@ -22,9 +25,11 @@ def create_tables():
 
 jwt = JWT(app, authenticate, identity)  # /auth
 
-# Routing
+# Market - Routing
 api.add_resource(Market, '/market/<string:name>')
 api.add_resource(MarketList, '/markets')
+
+# Routing - User 
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
