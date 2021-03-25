@@ -7,9 +7,10 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 function Manager() {
   return (
     <div className="manager">
-      <FaceIcon /> My Account
+      <FaceIcon />
+      <a href="/account">My Account</a>
       <AddBoxIcon /> Coins
-      <NotificationsIcon /> Alerts
+      <NotificationsIcon /> Manage Listing
       <div className="manager__box">
         <h1>Trending</h1>
         <p>17</p>

@@ -2,14 +2,14 @@ import React from "react";
 import "./MarketCard.css";
 
 export const MarketCard = ({ markets }) => {
-  // console.log(data);
+  console.log(markets);
   //return <div>{movies.length}</div>;
 
   return (
     <>
       {markets.map((market) => {
         return (
-          <div className="marketcard">
+          <div className="marketcard" key={market.title}>
             <div className="marketcard__thumbnail">
               <img src={market.baseURL} alt="" />
             </div>
