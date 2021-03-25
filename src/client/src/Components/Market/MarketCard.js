@@ -2,7 +2,7 @@ import React from "react";
 import "./MarketCard.css";
 
 export const MarketCard = ({ markets }) => {
-  console.log(markets);
+  //console.log(markets);
   //return <div>{movies.length}</div>;
 
   return (

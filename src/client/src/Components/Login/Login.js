@@ -14,7 +14,11 @@ const required = (value) => {
     );
   }
 };
-
+//
+//
+// login  account - Route
+//
+//
 const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
@@ -41,10 +45,6 @@ const Login = (props) => {
   //
   //
   const handleRegister = (e) => {
-    console.log(password);
-    console.log(email);
-    console.log(username);
-
     e.preventDefault();
 
     // Clear message & Activate loading
@@ -128,6 +128,13 @@ const Login = (props) => {
         <Form onSubmit={handleLogin} ref={form}>
           <Input
             type="text"
+            placeholder="Email - Not Mandatory to Sign In"
+            className="form-control"
+            name="email"
+            value={email}
+          />
+          <Input
+            type="text"
             placeholder="Username"
             className="form-control"
             name="username"
@@ -135,14 +142,6 @@ const Login = (props) => {
             onChange={onChangeUsername}
             validations={[required]}
           />
-          <Input
-            type="text"
-            placeholder="Email - Not Mandatory to Sign In"
-            className="form-control"
-            name="email"
-            value={email}
-          />
-
           <Input
             type="password"
             className="form-control"

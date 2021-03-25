@@ -2,12 +2,16 @@ import React from "react";
 import "./Sidebar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import SidebarContent from "./SidebarContent";
+import AuthService from "../../Hooks/auth.service";
 
 function SidebarContainer() {
+  const currentUser = AuthService.getCurrentUser();
+  //console.log(currentUser);
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <p>My username</p>
+        <p>TEST</p>
       </div>
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">

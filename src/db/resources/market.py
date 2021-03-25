@@ -19,13 +19,14 @@ class Market(Resource):
     )
     parser.add_argument('describe')
     parser.add_argument('baseURL')
+    parser.add_argument('channel')
 
     @jwt_required()
     def get(self, name):
         market = MarketModel.find_by_name(name)
         if market:
             return market.json()
-        return {'message': 'Movie not found'}, 404
+        return {'message': 'Market not found'}, 404
 
     def post(self, name):
         if MarketModel.find_by_name(name):
@@ -33,7 +34,7 @@ class Market(Resource):
 
         data = Market.parser.parse_args()
 
-        market = MarketModel(name, data['rating'], data['year'], data['describe'], data['baseURL'])
+        market = MarketModel(name, data['rating'], data['year'], data['describe'], data['baseURL'], data['channel'])
 
         try:
             market.save_to_db()

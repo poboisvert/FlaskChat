@@ -16,12 +16,14 @@ const login = (username, password) => {
       username,
       password,
     })
-    .then((response) => {
-      if (response.data.access_token) {
-        localStorage.setItem("user", response.data.access_token);
+    .then((res) => {
+      //console.log(res);
+
+      if (res.data.access_token) {
+        localStorage.setItem("user", res.data.access_token);
       }
 
-      return response.data;
+      return res.data;
     });
 };
 

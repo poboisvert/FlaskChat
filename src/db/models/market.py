@@ -11,18 +11,20 @@ class MarketModel(db.Model):
     year = db.Column(db.Float(precision=2))
     describe = db.Column(db.String(80))
     baseURL = db.Column(db.String(80))
+    channel = db.Column(db.String(80))
 
-    def __init__(self, title, rating, year, describe, baseURL):
+    def __init__(self, title, rating, year, describe, baseURL, channel):
         self.title = title
         self.rating = rating
         self.year = year
         self.describe = describe
         self.baseURL = baseURL
+        self.channel = channel
 
         
 
     def json(self):
-        return {'title': self.title, 'rating': self.rating, 'year': self.year, 'describe': self.describe, 'baseURL': self.baseURL}
+        return {'title': self.title, 'rating': self.rating, 'year': self.year, 'describe': self.describe, 'baseURL': self.baseURL, 'channel': self.channel}
 
     @classmethod
     def find_by_name(cls, title):

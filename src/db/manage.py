@@ -14,16 +14,18 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
+
+# App init
 app.secret_key = 'examplekey'
 api = Api(app)
 
-
+# DB creation
 @app.before_first_request
 def create_tables():
     db.create_all()
 
-
-jwt = JWT(app, authenticate, identity)  # /auth
+# /auth
+jwt = JWT(app, authenticate, identity)  
 
 # Market - Routing
 api.add_resource(Market, '/market/<string:name>')
@@ -32,6 +34,7 @@ api.add_resource(MarketList, '/markets')
 # Routing - User 
 api.add_resource(UserRegister, '/register')
 
+# Flask general
 if __name__ == '__main__':
     from db import db
     db.init_app(app)
