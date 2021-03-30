@@ -30,6 +30,9 @@ class MarketModel(db.Model):
     def find_by_name(cls, title):
         return cls.query.filter_by(title=title).first()
 
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()
         # connection = sqlite3.connect('data.db')
         # cursor = connection.cursor()
 

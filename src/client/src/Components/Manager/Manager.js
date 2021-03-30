@@ -10,7 +10,7 @@ function Manager() {
       <FaceIcon />
       <a href="/account">My Account</a>
       <AddBoxIcon /> Coins
-      <NotificationsIcon /> <a href="/addListing">Manage Listing</a>
+      <NotificationsIcon /> <a href="/listing/add">Manage Listing</a>
       <div className="manager__box">
         <h1>Trending</h1>
         <p>17</p>

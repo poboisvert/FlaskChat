@@ -56,7 +56,7 @@ class Market(Resource):
         market = MarketModel.find_by_name(name)
      
         if market is None:
-            market =  MarketModel(name, data['rating'], data['year'], data['describe'])
+            market =  MarketModel(name, **data)
         else:
             market.rating =  data['rating']
             market.year =  data['year']
@@ -70,6 +70,5 @@ class Market(Resource):
 
 class MarketList(Resource):
     def get(self):
-
        # return {'movies': list(map(mabda x: x.json(), MarketModel.query.all()))}
-        return {'markets': [market.json() for market in MarketModel.query.all()]}
+        return {'markets': [m.json() for m in MarketModel.find_all()]}

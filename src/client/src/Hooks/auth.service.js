@@ -21,6 +21,7 @@ const login = (username, password) => {
 
       if (res.data.access_token) {
         localStorage.setItem("user", res.data.access_token);
+        localStorage.setItem("username", username);
       }
 
       return res.data;

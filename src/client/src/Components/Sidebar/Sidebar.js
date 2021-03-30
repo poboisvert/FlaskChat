@@ -7,11 +7,12 @@ import AuthService from "../../Hooks/auth.service";
 function SidebarContainer() {
   const currentUser = AuthService.getCurrentUser();
   //console.log(currentUser);
+  console.log(currentUser);
 
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <p>TEST</p>
+        <p>Username</p>
       </div>
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
