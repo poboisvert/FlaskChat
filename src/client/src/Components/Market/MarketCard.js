@@ -1,6 +1,6 @@
 import React from "react";
 import "./MarketCard.css";
-
+import InputOption from "../Shared/InputOption";
 export const MarketCard = ({ markets }) => {
   //console.log(markets);
   //return <div>{movies.length}</div>;
@@ -9,7 +9,7 @@ export const MarketCard = ({ markets }) => {
     <>
       {markets.map((market) => {
         return (
-          <div className="marketcard" key={market.title}>
+          <div key={market.title} className="marketcard">
             <div className="marketcard__thumbnail">
               <img src={market.baseURL} alt="" />
             </div>
@@ -20,7 +20,9 @@ export const MarketCard = ({ markets }) => {
                   Published: {market.year} | Rated: {market.rating}
                 </p>
                 <p>{market.describe}</p>
-                <div className="marketcard__icon"></div>
+                <div className="marketcard__icon">
+                  <InputOption Icon="" title="Open" color="#5c3cfc" link="/" />
+                </div>
               </div>
             </div>
           </div>

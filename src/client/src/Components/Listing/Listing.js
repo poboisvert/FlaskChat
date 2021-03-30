@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
-import useRequest from "./AxiosHelper";
+import UseRequest from "../../Hooks/AxiosHelper";
 
 import AuthService from "../../Hooks/auth.service";
 
@@ -15,18 +15,30 @@ function Listing() {
   const [channel, setChannel] = useState("");
   const [baseURL, setBaseURL] = useState("");
 
-  const API_URL = "/market/test";
-
   //
   //
   // AddListing Market - New
   //
   //
+  const { doRequest, errors } = UseRequest({
+    url: `/market/${title}`,
+    method: "post",
+    body: {
+      title: title,
+      rating: rating,
+      year: year,
+      describe: describe,
+      baseURL: baseURL,
+      channel: channel,
+    },
+    onSuccess: () => this.props.history.push("/"),
+  });
 
-  const addListing = (e) => {
+  const addListing = async (e) => {
     e.preventDefault();
+    await doRequest();
     //console.log(currentUser);
-    const data = {
+    /*     const data = {
       title: title,
       rating: 1,
       year: 2009,
@@ -53,7 +65,7 @@ function Listing() {
       })
       .catch((error) => {
         //return  error;
-      });
+      }); */
   };
 
   //console.log(res);

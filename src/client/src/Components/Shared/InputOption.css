@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   margin-right: 20px;
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 5px;
+  background-color: #778beb;
 }
 
 .inputOption > a {
@@ -15,8 +16,7 @@
 }
 
 .inputOption:hover {
-  background-color: #34495e;
-  border-radius: 10px;
+  background-color: #778beb;
   padding: 5px;
 }
 
