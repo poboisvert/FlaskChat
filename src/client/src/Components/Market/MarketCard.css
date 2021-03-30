@@ -45,6 +45,8 @@
   margin-bottom: 50px;
 }
 
-.marketcard__icon {
+.marketcard__navigation {
   display: flex;
+  align-items: center;
+  text-align: center;
 }

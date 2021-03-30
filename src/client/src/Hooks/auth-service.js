@@ -17,10 +17,8 @@ const login = (username, password) => {
       password,
     })
     .then((res) => {
-      //console.log(res);
-
       if (res.data.access_token) {
-        localStorage.setItem("user", res.data.access_token);
+        localStorage.setItem("token", res.data.access_token);
         localStorage.setItem("username", username);
       }
 
@@ -29,11 +27,11 @@ const login = (username, password) => {
 };
 
 const logout = () => {
-  localStorage.removeItem("user");
+  localStorage.removeItem("token");
 };
 
 const getCurrentUser = () => {
-  return localStorage.getItem("user");
+  return localStorage.getItem("username");
 };
 
 export default {

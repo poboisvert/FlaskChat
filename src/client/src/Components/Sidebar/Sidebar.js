@@ -2,7 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import SidebarContent from "./SidebarContent";
-import AuthService from "../../Hooks/auth.service";
+import AuthService from "../../Hooks/auth-service";
 
 function SidebarContainer() {
   const currentUser = AuthService.getCurrentUser();
@@ -12,7 +12,7 @@ function SidebarContainer() {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <p>Username</p>
+        <p>Hi! {currentUser}</p>
       </div>
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">

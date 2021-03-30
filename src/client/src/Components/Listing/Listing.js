@@ -1,13 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
-import UseRequest from "../../Hooks/AxiosHelper";
-
-import AuthService from "../../Hooks/auth.service";
+import UseRequest from "../../Hooks/axios-helper";
 
 function Listing() {
-  const currentUser = AuthService.getCurrentUser();
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState("");
   const [year, setYear] = useState("");
@@ -20,7 +16,7 @@ function Listing() {
   // AddListing Market - New
   //
   //
-  const { doRequest, errors } = UseRequest({
+  const { doRequest } = UseRequest({
     url: `/market/${title}`,
     method: "post",
     body: {
@@ -74,67 +70,67 @@ function Listing() {
 
   return (
     <div className="market">
-      <Form onSubmit={addListing}>
-        <Input
-          type="text"
-          placeholder="Title"
-          className="form-control"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <div className="market__container">
+        <div className="market__items">
+          <Form onSubmit={addListing}>
+            <Input
+              type="text"
+              placeholder="Title"
+              className="form-control"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
 
-        <Input
-          type="text"
-          placeholder="rating"
-          className="form-control"
-          name="rating"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="year"
-          className="form-control"
-          name="year"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-        />
+            <Input
+              type="text"
+              placeholder="rating"
+              className="form-control"
+              name="rating"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="year"
+              className="form-control"
+              name="year"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+            />
 
-        <Input
-          type="text"
-          placeholder="describe"
-          className="form-control"
-          name="describe"
-          value={describe}
-          onChange={(e) => setDescribe(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="channel"
-          className="form-control"
-          name="channel"
-          value={channel}
-          onChange={(e) => setChannel(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="baseURL"
-          className="form-control"
-          name="baseURL"
-          value={baseURL}
-          onChange={(e) => setBaseURL(e.target.value)}
-        />
+            <Input
+              type="text"
+              placeholder="describe"
+              className="form-control"
+              name="describe"
+              value={describe}
+              onChange={(e) => setDescribe(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="channel"
+              className="form-control"
+              name="channel"
+              value={channel}
+              onChange={(e) => setChannel(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="baseURL"
+              className="form-control"
+              name="baseURL"
+              value={baseURL}
+              onChange={(e) => setBaseURL(e.target.value)}
+            />
 
-        <button className="sign-in">
-          <span>Publish</span>
-        </button>
-        <button>
-          <span>
+            <button className="sign-in">
+              <span>Publish</span>
+            </button>
             <a href="/">Home</a>
-          </span>
-        </button>
-      </Form>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 }

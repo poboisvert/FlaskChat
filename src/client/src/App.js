@@ -3,9 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./Components/Login/Login";
 import Home from "./pages/home";
-import AuthService from "./Hooks/auth.service";
+import AuthService from "./Hooks/auth-service";
 import Account from "./Components/Account/Account";
-import Listing from "./Components/Listing/Listing";
 import MarketManager from "./pages/marketManager";
 
 // Style

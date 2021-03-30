@@ -20,8 +20,10 @@ export const MarketCard = ({ markets }) => {
                   Published: {market.year} | Rated: {market.rating}
                 </p>
                 <p>{market.describe}</p>
-                <div className="marketcard__icon">
-                  <InputOption Icon="" title="Open" color="#5c3cfc" link="/" />
+                <div className="marketcard__navigation">
+                  <InputOption title="Open" link="/add" />
+                  <InputOption title="Edit" link="/" />
+                  <InputOption title="Delete" link="/" />
                 </div>
               </div>
             </div>
