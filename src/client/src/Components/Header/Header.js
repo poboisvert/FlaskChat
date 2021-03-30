@@ -3,7 +3,6 @@ import "./Header.css";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import TheatersIcon from "@material-ui/icons/Theaters";
-
 import InputOption from "../../Shared/InputOption";
 
 export default function Header() {

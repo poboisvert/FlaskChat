@@ -3,8 +3,12 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./Components/Login/Login";
 import Home from "./pages/home";
-import AuthService from "./Hooks/auth.service";
+import AuthService from "./Hooks/auth-service";
 import Account from "./Components/Account/Account";
+import MarketManager from "./pages/marketManager";
+
+// Style
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const currentUser = AuthService.getCurrentUser();
@@ -14,6 +18,9 @@ function App() {
         <div className="app__body">
           {currentUser ? (
             <>
+              <Switch>
+                <Route path="/listing/add" component={MarketManager} />
+              </Switch>
               <Switch>
                 <Route exact path="/account" component={Account} />
               </Switch>

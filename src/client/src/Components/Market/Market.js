@@ -4,7 +4,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import "./Market.css";
 import { MarketCard } from "./MarketCard";
-import AuthService from "../../Hooks/auth.service";
+import AuthService from "../../Hooks/auth-service";
 import { useHistory } from "react-router-dom";
 import Manager from "../Manager/Manager";
 

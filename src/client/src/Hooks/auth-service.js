@@ -16,21 +16,22 @@ const login = (username, password) => {
       username,
       password,
     })
-    .then((response) => {
-      if (response.data.access_token) {
-        localStorage.setItem("user", response.data.access_token);
+    .then((res) => {
+      if (res.data.access_token) {
+        localStorage.setItem("token", res.data.access_token);
+        localStorage.setItem("username", username);
       }
 
-      return response.data;
+      return res.data;
     });
 };
 
 const logout = () => {
-  localStorage.removeItem("user");
+  localStorage.removeItem("token");
 };
 
 const getCurrentUser = () => {
-  return localStorage.getItem("user");
+  return localStorage.getItem("username");
 };
 
 export default {

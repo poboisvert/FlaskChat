@@ -40,7 +40,8 @@
 
 .market__items {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  border-radius: 10px;
   flex: 0.85;
   flex-grow: 1;
   overflow-y: auto; /*add this.*/

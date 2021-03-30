@@ -1,8 +1,10 @@
 .marketcard {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  flex: 0 1 calc(25% - 0.8em);
+  flex-direction: column;
+  max-width: 300px;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
 }
 
 .marketcard__content {
@@ -43,6 +45,8 @@
   margin-bottom: 50px;
 }
 
-.marketcard__icon {
+.marketcard__navigation {
   display: flex;
+  align-items: center;
+  text-align: center;
 }
