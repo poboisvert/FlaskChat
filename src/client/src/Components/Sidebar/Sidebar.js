@@ -24,8 +24,8 @@ function SidebarContainer() {
   //
 
   useEffect(() => {
-    fetch("/markets").then((response) =>
-      response.json().then((data) => {
+    fetch("/markets").then((res) =>
+      res.json().then((data) => {
         // console.log(data.markets);
         setChannels(data.markets);
       })
