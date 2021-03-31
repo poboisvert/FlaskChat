@@ -13,21 +13,22 @@ function Navigation() {
   useEffect(() => {
     fetch(`/user/${currentUser}`).then((res) =>
       res.json().then((data) => {
-        // console.log(data.markets);
         setCoins(data.coins);
       })
     );
   }, []);
   return (
     <div className="navigation">
+      <div className="navigation__box">
+        <a href="/">
+          <h1>Home</h1>
+          <p>Trending</p>
+        </a>
+      </div>
       <FaceIcon />
       <a href="/account">My Account</a>
-      <AddBoxIcon /> {coins} Coins
       <NotificationsIcon /> <a href="/listing/add">Manage Listing</a>
-      <div className="navigation__box">
-        <h1>Trending</h1>
-        <p>17</p>
-      </div>
+      <AddBoxIcon /> {coins} Coins
     </div>
   );
 }

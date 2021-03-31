@@ -25,11 +25,21 @@ function SidebarContainer() {
   useEffect(() => {
     fetch("/markets").then((res) =>
       res.json().then((data) => {
+        //console.log(data);
         setDatas(data.markets);
       })
     );
   }, []);
-  //console.log(channels);
+
+  // console.log(datas);
+
+  const GroupBy = datas.reduce((uniqueCat, { channel, title }) => {
+    if (!uniqueCat[channel]) uniqueCat[channel] = [];
+    uniqueCat[channel].push(title);
+    return uniqueCat;
+  }, {});
+  //console.log(Object.keys(GroupBy));
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -46,9 +56,10 @@ function SidebarContainer() {
       </div>
       <div className="sidebar__chats">
         <SidebarContent addNewChat />
-        {datas.map((data) => (
+
+        {Object.keys(GroupBy).map((item) => (
           //  console.log(channel)
-          <SidebarContent key={data.channel} id="roomID" name={data.channel} />
+          <SidebarContent key={item} id="roomID" name={item} />
         ))}
       </div>
     </div>
