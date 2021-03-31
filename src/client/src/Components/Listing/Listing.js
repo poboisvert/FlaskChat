@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import UseRequest from "../../Hooks/axios-helper";
 import { useHistory } from "react-router-dom";
 import "./Listing.css";
+import Navigation from "../Navigation/Navigation";
 
 function Listing() {
   let history = useHistory();
@@ -134,6 +135,7 @@ function Listing() {
           </Form>
         </div>
       </div>
+      <Navigation />
     </div>
   );
 }

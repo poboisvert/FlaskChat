@@ -9,9 +9,11 @@
   align-items: center;
   min-height: 4rem;
   top: 50%;
+  padding-right: 50px;
 }
 
-.navigation__box {
+.navigation__box,
+.navigation__box > a {
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
