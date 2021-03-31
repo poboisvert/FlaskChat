@@ -28,10 +28,6 @@ function Navigation() {
         <h1>Trending</h1>
         <p>17</p>
       </div>
-      <div className="navigation__box">
-        <h1>You missed</h1>
-        <p>26</p>
-      </div>
     </div>
   );
 }

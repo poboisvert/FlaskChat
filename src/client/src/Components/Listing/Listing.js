@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import UseRequest from "../../Hooks/axios-helper";
+import { useHistory } from "react-router-dom";
 import "./Listing.css";
 
 function Listing() {
+  let history = useHistory();
+
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState("");
   const [year, setYear] = useState("");
@@ -28,7 +31,7 @@ function Listing() {
       baseURL: baseURL,
       channel: channel,
     },
-    onSuccess: () => this.props.history.push("/"),
+    onSuccess: () => history.push("/"),
   });
 
   const addListing = async (e) => {
