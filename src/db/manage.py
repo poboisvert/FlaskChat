@@ -7,7 +7,7 @@ from flask_script import Manager
 
 # Authentification
 from security import authenticate, identity
-from resources.user import UserRegister
+from resources.user import UserRegister, User
 from resources.market import Market, MarketList
 
 app = Flask(__name__)
@@ -33,6 +33,7 @@ api.add_resource(MarketList, '/markets')
 
 # Routing - User 
 api.add_resource(UserRegister, '/register')
+api.add_resource(User, '/user/<string:name>')
 
 # Flask general
 if __name__ == '__main__':
