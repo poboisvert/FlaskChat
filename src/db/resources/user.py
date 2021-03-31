@@ -1,4 +1,7 @@
 import sqlite3
+from flask import Blueprint, jsonify, request
+
+
 from flask_restful import Resource, reqparse
 from models.user import UserModel
 
@@ -16,6 +19,11 @@ class UserRegister(Resource):
                         required=True,
                         help="This field cannot be left blank!"
                         )
+    parser.add_argument('coins',
+                        type=int,
+                        default=50,
+                        help="This field cannot be left blank!"
+                        )
 
     def post(self):
         # Parse user informtion
@@ -31,3 +39,11 @@ class UserRegister(Resource):
         user.save_to_db()
         # Return confirmation message
         return {"message": "User created successfully."}, 201
+
+class User(Resource):
+    def get(self, name):
+        user = UserModel.find_by_username(name)
+        if user:
+            return user.json()
+        return {'message': 'User not found'}, 404
+

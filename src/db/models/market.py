@@ -21,8 +21,6 @@ class MarketModel(db.Model):
         self.baseURL = baseURL
         self.channel = channel
 
-        
-
     def json(self):
         return {'title': self.title, 'rating': self.rating, 'year': self.year, 'describe': self.describe, 'baseURL': self.baseURL, 'channel': self.channel}
 
