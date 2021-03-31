@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./Components/Login/Login";
-import Home from "./pages/home";
 import AuthService from "./Hooks/auth-service";
-import Account from "./Components/Account/Account";
 import MarketManager from "./pages/marketManager";
 
+import Home from "./pages/home";
+import Account from "./pages/account";
 // Style
 // import "bootstrap/dist/css/bootstrap.min.css";
 
