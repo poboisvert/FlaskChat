@@ -3,12 +3,15 @@ import "./Navigation.css";
 import FaceIcon from "@material-ui/icons/Face";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import AuthService from "../../Hooks/auth-service";
 
 function Navigation() {
+  const currentUser = AuthService.getCurrentUser();
   const [coins, setCoins] = useState(0);
+  //console.log(currentUser);
 
   useEffect(() => {
-    fetch("/user/user").then((res) =>
+    fetch(`/user/${currentUser}`).then((res) =>
       res.json().then((data) => {
         // console.log(data.markets);
         setCoins(data.coins);
