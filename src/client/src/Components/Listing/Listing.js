@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import UseRequest from "../../Hooks/axios-helper";
+import "./Listing.css";
 
 function Listing() {
   const [title, setTitle] = useState("");
@@ -69,9 +70,9 @@ function Listing() {
   //await doRequest(); // wait then execute the line below - router
 
   return (
-    <div className="market">
-      <div className="market__container">
-        <div className="market__items">
+    <div className="listing">
+      <div className="listing__container">
+        <div className="listing__items">
           <Form onSubmit={addListing}>
             <Input
               type="text"
@@ -127,7 +128,6 @@ function Listing() {
             <button className="sign-in">
               <span>Publish</span>
             </button>
-            <a href="/">Home</a>
           </Form>
         </div>
       </div>

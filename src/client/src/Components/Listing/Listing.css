@@ -1,0 +1,21 @@
+.listing {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+}
+
+.listing__container {
+  flex-direction: column;
+  margin: auto;
+}
+
+.listing__items {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  flex: 0.85;
+  flex-grow: 1;
+  overflow-y: auto; /*add this.*/
+  max-height: 600px;
+}
