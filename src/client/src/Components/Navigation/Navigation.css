@@ -1,4 +1,4 @@
-.manager {
+.navigation {
   background-color: #778beb;
   display: flex;
   padding: 20px;
@@ -11,7 +11,7 @@
   top: 50%;
 }
 
-.manager__box {
+.navigation__box {
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
@@ -23,7 +23,7 @@
   justify-content: space-evenly;
 }
 
-.manager__box > h1 {
+.navigation__box > h1 {
   font-weight: 400;
   font-size: 16px;
 }
