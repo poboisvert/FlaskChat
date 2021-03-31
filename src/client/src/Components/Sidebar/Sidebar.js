@@ -5,13 +5,12 @@ import SidebarContent from "./SidebarContent";
 import AuthService from "../../Hooks/auth-service";
 //
 import { IconButton } from "@material-ui/core";
-//import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 //
 import { useHistory } from "react-router-dom";
 
 function SidebarContainer() {
-  const [channels, setChannels] = useState([]);
+  const [datas, setDatas] = useState([]);
   //
   const currentUser = AuthService.getCurrentUser();
   //console.log(currentUser);
@@ -26,8 +25,7 @@ function SidebarContainer() {
   useEffect(() => {
     fetch("/markets").then((res) =>
       res.json().then((data) => {
-        // console.log(data.markets);
-        setChannels(data.markets);
+        setDatas(data.markets);
       })
     );
   }, []);
@@ -36,9 +34,6 @@ function SidebarContainer() {
     <div className="sidebar">
       <div className="sidebar__header">
         <p>Hi! {currentUser}</p>
-        {/*         <IconButton>
-          <SettingsIcon />
-        </IconButton> */}
         <IconButton onClick={logOut}>
           <ExitToAppIcon />
         </IconButton>
@@ -51,13 +46,9 @@ function SidebarContainer() {
       </div>
       <div className="sidebar__chats">
         <SidebarContent addNewChat />
-        {channels.map((channel) => (
+        {datas.map((data) => (
           //  console.log(channel)
-          <SidebarContent
-            key={channel.channel}
-            id="roomID"
-            name={channel.channel}
-          />
+          <SidebarContent key={data.channel} id="roomID" name={data.channel} />
         ))}
       </div>
     </div>
