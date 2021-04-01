@@ -17,8 +17,8 @@ function Market() {
   }, []);
 
   const marketFilter = markets.filter((p) => p.channel === name);
-  console.log(marketFilter);
-  console.log(markets);
+  //console.log(marketFilter);
+  //console.log(markets);
 
   //  console.log(markets);
   return (

@@ -22,23 +22,17 @@ function App() {
             <>
               <Switch>
                 <Route path="/listing/add" component={MarketManager} />
-              </Switch>
-              <Switch>
-                <Route path="/markets/:name">
+
+                <Route path="/:name">
                   <SidebarContainer />
                   <Market />
                 </Route>
-              </Switch>
-              <Switch>
                 <Route exact path="/account" component={Account} />
-              </Switch>
-              <Switch>
+
                 <Route exact path="/logout" component={Login} />
-              </Switch>
-              <Switch>
+
                 <Route exact path="/login" component={Login} />
-              </Switch>
-              <Switch>
+
                 <Route exact path="/" component={Home}></Route>
               </Switch>
             </>

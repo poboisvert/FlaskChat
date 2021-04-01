@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./SidebarContent.css";
 import { Avatar } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-export default function SidebarContent({ id, name, addNewChat, url }) {
+export default function SidebarContent({ name, addNewChat, url }) {
   const [text, setText] = useState("");
   useEffect(() => {
     let text = "";
@@ -24,7 +25,7 @@ export default function SidebarContent({ id, name, addNewChat, url }) {
   };
 
   return !addNewChat ? (
-    <a href={url}>
+    <Link to={url}>
       <div className="SidebarChat">
         <Avatar src={`https://avatars.dicebear.com/4.5/api/male/${text}.svg`} />
         <div className="sidebarChat__info">
@@ -32,7 +33,7 @@ export default function SidebarContent({ id, name, addNewChat, url }) {
           <p>Last message...</p>
         </div>
       </div>
-    </a>
+    </Link>
   ) : (
     <div onClick={createChat} className="SidebarChat">
       <h2>Add New Aggregation</h2>
