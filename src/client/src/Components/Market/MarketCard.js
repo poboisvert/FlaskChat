@@ -2,9 +2,7 @@ import React from "react";
 import "./MarketCard.css";
 import InputOption from "../Shared/InputOption";
 export const MarketCard = ({ markets }) => {
-  //console.log(markets);
-  //return <div>{movies.length}</div>;
-
+  //
   return (
     <>
       {markets.map((market) => {

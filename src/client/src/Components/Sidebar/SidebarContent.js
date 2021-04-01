@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SidebarContent.css";
 import { Avatar } from "@material-ui/core";
 
-export default function SidebarContent({ id, name, addNewChat }) {
+export default function SidebarContent({ id, name, addNewChat, url }) {
   const [text, setText] = useState("");
   useEffect(() => {
     let text = "";
@@ -24,13 +24,15 @@ export default function SidebarContent({ id, name, addNewChat }) {
   };
 
   return !addNewChat ? (
-    <div className="SidebarChat">
-      <Avatar src={`https://avatars.dicebear.com/4.5/api/male/${text}.svg`} />
-      <div className="sidebarChat__info">
-        <h2>{name}</h2>
-        <p>Last message...</p>
+    <a href={url}>
+      <div className="SidebarChat">
+        <Avatar src={`https://avatars.dicebear.com/4.5/api/male/${text}.svg`} />
+        <div className="sidebarChat__info">
+          <h2>{name}</h2>
+          <p>Last message...</p>
+        </div>
       </div>
-    </div>
+    </a>
   ) : (
     <div onClick={createChat} className="SidebarChat">
       <h2>Add New Aggregation</h2>

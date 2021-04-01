@@ -7,6 +7,8 @@ import MarketManager from "./pages/marketManager";
 
 import Home from "./pages/home";
 import Account from "./pages/account";
+import Market from "./Components/Market/Market";
+import SidebarContainer from "./Components/Sidebar/Sidebar";
 // Style
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,6 +22,12 @@ function App() {
             <>
               <Switch>
                 <Route path="/listing/add" component={MarketManager} />
+              </Switch>
+              <Switch>
+                <Route path="/markets/:name">
+                  <SidebarContainer />
+                  <Market />
+                </Route>
               </Switch>
               <Switch>
                 <Route exact path="/account" component={Account} />

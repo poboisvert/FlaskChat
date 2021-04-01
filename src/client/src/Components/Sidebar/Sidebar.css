@@ -51,9 +51,11 @@
   color: white;
 }
 
-.sidebar__chats {
+.sidebar__chats,
+.sidebar__chats > a {
   flex: 1;
   background-color: #f6f6f6;
   overflow-x: hidden;
   overflow-y: auto;
+  color: black;
 }

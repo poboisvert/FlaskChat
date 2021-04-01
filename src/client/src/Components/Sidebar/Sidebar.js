@@ -58,8 +58,12 @@ function SidebarContainer() {
         <SidebarContent addNewChat />
 
         {Object.keys(GroupBy).map((item) => (
-          //  console.log(channel)
-          <SidebarContent key={item} id="roomID" name={item} />
+          <SidebarContent
+            key={item}
+            id="roomID"
+            name={item}
+            url={`markets/${item}`}
+          />
         ))}
       </div>
     </div>
