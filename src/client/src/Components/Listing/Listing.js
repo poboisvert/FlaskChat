@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import UseRequest from "../../Hooks/axios-helper";
-import { useHistory } from "react-router-dom";
 import "./Listing.css";
 import Navigation from "../Navigation/Navigation";
+import { useHistory } from "react-router-dom";
 
-function Listing() {
+const Listing = ({ match }) => {
+  //console.log(match);
   let history = useHistory();
 
   const [title, setTitle] = useState("");
@@ -138,6 +139,6 @@ function Listing() {
       <Navigation />
     </div>
   );
-}
+};
 
 export default Listing;

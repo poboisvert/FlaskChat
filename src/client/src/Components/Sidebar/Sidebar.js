@@ -8,12 +8,11 @@ import { IconButton } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 //
 import { useHistory } from "react-router-dom";
-import { Link, Route, useRouteMatch } from "react-router-dom";
 
 function SidebarContainer() {
   const [datas, setDatas] = useState([]);
-  const { url } = useRouteMatch();
-  console.log(url);
+
+  //console.log(url);
   //
   const currentUser = AuthService.getCurrentUser();
   //console.log(currentUser);

@@ -25,7 +25,7 @@ export default function SidebarContent({ name, addNewChat, url }) {
   };
 
   return !addNewChat ? (
-    <Link to={url}>
+    <Link to={`/channel/${url}`}>
       <div className="SidebarChat">
         <Avatar src={`https://avatars.dicebear.com/4.5/api/male/${text}.svg`} />
         <div className="sidebarChat__info">

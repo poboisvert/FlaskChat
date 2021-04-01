@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./Market.css";
 import { MarketCard } from "./MarketCard";
+// Routing
 import Navigation from "../Navigation/Navigation";
-import { Link, Route, useParams, useRouteMatch } from "react-router-dom";
+import { useParams, useRouteMatch } from "react-router-dom";
 
-function Market() {
+const Market = () => {
   const [markets, setMarkets] = useState([]);
   const { name } = useParams();
+  // console.log(name);
 
   useEffect(() => {
-    fetch("/markets").then((response) =>
-      response.json().then((data) => {
+    fetch("/markets").then((res) =>
+      res.json().then((data) => {
         setMarkets(data.markets);
       })
     );
   }, []);
 
   const marketFilter = markets.filter((p) => p.channel === name);
-  //console.log(marketFilter);
-  //console.log(markets);
 
-  //  console.log(markets);
   return (
     <>
       <div className="market">
@@ -35,6 +34,6 @@ function Market() {
       </div>
     </>
   );
-}
+};
 
 export default Market;

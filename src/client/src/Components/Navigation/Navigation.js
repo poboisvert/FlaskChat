@@ -27,7 +27,7 @@ function Navigation() {
       </div>
       <FaceIcon />
       <a href="/account">My Account</a>
-      <NotificationsIcon /> <a href="/listing/add">Manage Listing</a>
+      <NotificationsIcon /> <a href="/listing">Quick Add</a>
       <AddBoxIcon /> {coins} Coins
     </div>
   );

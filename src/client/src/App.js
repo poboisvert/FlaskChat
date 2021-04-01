@@ -9,6 +9,7 @@ import Home from "./pages/home";
 import Account from "./pages/account";
 import Market from "./Components/Market/Market";
 import SidebarContainer from "./Components/Sidebar/Sidebar";
+import Listing from "./Components/Listing/Listing";
 // Style
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,12 +22,12 @@ function App() {
           {currentUser ? (
             <>
               <Switch>
-                <Route path="/listing/add" component={MarketManager} />
+                <Route path="/listing/:id" component={MarketManager} />
 
-                <Route path="/:name">
-                  <SidebarContainer />
-                  <Market />
-                </Route>
+                <Route exact path="/listing" component={MarketManager} />
+
+                <Route path="/channel/:name" component={Home}></Route>
+
                 <Route exact path="/account" component={Account} />
 
                 <Route exact path="/logout" component={Login} />
