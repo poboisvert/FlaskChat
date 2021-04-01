@@ -28,6 +28,11 @@ const login = (username, password) => {
 
 const logout = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("username");
+};
+
+const getCurrentToken = () => {
+  return localStorage.getItem("token");
 };
 
 const getCurrentUser = () => {
@@ -39,4 +44,5 @@ export default {
   login,
   logout,
   getCurrentUser,
+  getCurrentToken,
 };

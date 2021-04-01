@@ -35,8 +35,9 @@ export default function SidebarContent({ name, addNewChat, url }) {
       </div>
     </Link>
   ) : (
-    <div onClick={createChat} className="SidebarChat">
-      <h2>Add New Aggregation</h2>
-    </div>
+    ""
+    /*     <div onClick={createChat} className="SidebarChat">
+    <h2>Add New Aggregation</h2>
+  </div> */
   );
 }

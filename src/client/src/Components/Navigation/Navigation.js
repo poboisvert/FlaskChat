@@ -21,14 +21,19 @@ function Navigation() {
     <div className="navigation">
       <div className="navigation__box">
         <a href="/">
-          <h1>Home</h1>
-          <p>Trending</p>
+          <h3>Trending</h3>
         </a>
       </div>
-      <FaceIcon />
-      <a href="/account">My Account</a>
-      <NotificationsIcon /> <a href="/listing">Quick Add</a>
-      <AddBoxIcon /> {coins} Coins
+      <div className="navigation__box">
+        <FaceIcon />
+        <a href="/account">My Account</a>
+      </div>
+      <div className="navigation__box">
+        <NotificationsIcon /> <a href="/listing">Quick Add</a>
+      </div>
+      <div className="navigation__box">
+        <AddBoxIcon /> {coins} Coins
+      </div>
     </div>
   );
 }

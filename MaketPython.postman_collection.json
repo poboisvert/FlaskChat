@@ -9,7 +9,7 @@
 			"name": "Port 5000",
 			"item": [
 				{
-					"name": "/market",
+					"name": "/markets",
 					"event": [
 						{
 							"listen": "test",
@@ -72,7 +72,7 @@
 					"response": []
 				},
 				{
-					"name": "/items<name>",
+					"name": "/market/<name>",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -83,13 +83,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/market/Unit1",
+							"raw": "{{url}}/market/Unit2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"market",
-								"Unit1"
+								"Unit2"
 							]
 						},
 						"description": "This should return a list of items, each in JSON format."
@@ -109,16 +109,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Unit3\",\n    \"rating\": 3.5,\n    \"year\": 1999,\n    \"describe\" : \"Praesent elementum facilisis leo vel fringilla est ullamcorper. Neque ornare aenean euismod elementum nisi quis eleifend. Conguenisi vitae suscipit tellus mauris. Eget lorem dolor sed viverra. Nisi porta lorem mollis aliquam ut porttitor leo a. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Acut consequat semper viverra nam. Fusce id velit ut tortor pretium.\",\n    \"baseURL\": \"https://blog.pusher.com/wp-content/uploads/2017/06/How-to-use-typescript-with-node.jpg\",\n    \"channel\": \"channel\"\n}"
+							"raw": "{\n    \"title\": \"Unit5\",\n    \"rating\": 3.5,\n    \"year\": 1999,\n    \"describe\" : \"Praesent elementum facilisis leo vel fringilla est ullamcorper. Neque ornare aenean euismod elementum nisi quis eleifend. Conguenisi vitae suscipit tellus mauris.\",\n    \"baseURL\": \"https://miro.medium.com/max/3840/1*0dUkitoxrpJ5xM-g6KaHLA.png\",\n    \"channel\": \"channel3\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/market/Unit3",
+							"raw": "{{url}}/market/Unit5",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"market",
-								"Unit3"
+								"Unit5"
 							]
 						},
 						"description": "This should create one item in JSON format."
@@ -126,7 +126,7 @@
 					"response": []
 				},
 				{
-					"name": "/movie/<name>",
+					"name": "/market/<name>",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -170,13 +170,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/market/Western",
+							"raw": "{{url}}/market/Unit1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"market",
-								"Western"
+								"Unit1"
 							]
 						},
 						"description": "This should delete one item in JSON format."

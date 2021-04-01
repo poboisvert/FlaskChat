@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import UseRequest from "../../Hooks/axios-helper";
 import "./Listing.css";
 import Navigation from "../Navigation/Navigation";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import AuthService from "../../Hooks/auth-service";
 
-const Listing = ({ match }) => {
-  //console.log(match);
+const Listing = ({ id }) => {
   let history = useHistory();
+  const currentUser = AuthService.getCurrentToken();
+  console.log(currentUser);
 
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState("");
@@ -16,6 +19,35 @@ const Listing = ({ match }) => {
   const [describe, setDescribe] = useState("");
   const [channel, setChannel] = useState("");
   const [baseURL, setBaseURL] = useState("");
+
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`/market/${id}`, {
+          headers: {
+            Authorization: "JWT " + currentUser, // Python BackOffice
+          },
+        })
+        .then((res) => {
+          // return  response;
+          // console.log(res.data);
+          let { title, channel, baseURL, year, describe, rating } = res.data;
+          setTitle(title);
+          setChannel(channel);
+          setYear(year);
+          setDescribe(describe);
+          setBaseURL(baseURL);
+          setRating(rating);
+          // Forward to home page
+          // this.props.history.push("/");
+          // Refresh page
+          //window.location.reload();
+        })
+        .catch((error) => {
+          //return  error;
+        });
+    }
+  }, [id]);
 
   //
   //
@@ -77,6 +109,7 @@ const Listing = ({ match }) => {
   return (
     <div className="listing">
       <div className="listing__container">
+        {id ? <h4>Editing {id}</h4> : <h4>To insert a new market</h4>}
         <div className="listing__items">
           <Form onSubmit={addListing}>
             <Input
