@@ -4,7 +4,7 @@
 
 ### Overview
 
-Boilerplate application for a Flask JWT Backend and a React/Redux Front-End with Material UI.
+This project is a REST API using Python and Flask to store markets and a REACT interface.
 
 - Python 2.7+ or 3.x
 - Pytest
@@ -30,11 +30,19 @@ $ npm install
 
 If virtual env:
 
+python3 -m venv env
+
+source env/bin/activate
+
 > source venv/bin/activate
 
 ```sh
 $ python3 manage.py
 ```
+
+#### Testing BackEnd
+
+> python test.py
 
 ### Run Front-End
 
@@ -71,7 +79,7 @@ $ brew install python3
 Now you can check again to see if both python and pip are installed. Once pip is installed, you can download the required flask modules:
 
 ```
-$ sudo pip install flask flask_script flask_migrate flask_bcrypt Flask-SQLAlchemy
+$ sudo pip install flask flask_script flask_migrate flask_bcrypt Flask-SQLAlchemy pytest flask_testing flask_restful flask_jwt requests jsonify
 ```
 
 Now, you can decide on which database you wish to use.

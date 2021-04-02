@@ -3,6 +3,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 from flask_script import Manager
+from flask import Flask, request, jsonify # Imports the flask library modules
 
 
 # Authentification
