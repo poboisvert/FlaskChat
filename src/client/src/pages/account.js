@@ -1,6 +1,6 @@
-import React from "react";
-import Profile from "../Components/Profile/Profile";
-import SidebarContainer from "../Components/Sidebar/Sidebar";
+import React from 'react';
+import Profile from '../components/Profile/Profile';
+import SidebarContainer from '../components/Sidebar/Sidebar';
 
 const Account = () => {
   return (

@@ -1,6 +1,6 @@
-import React from "react";
-import Market from "../Components/Market/Market";
-import SidebarContainer from "../Components/Sidebar/Sidebar";
+import React from 'react';
+import Market from '../components/Market/Market';
+import SidebarContainer from '../components/Sidebar/Sidebar';
 
 const Home = () => {
   return (
