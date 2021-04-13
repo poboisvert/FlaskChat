@@ -111,7 +111,7 @@ const Login = (props) => {
           // Forward to home page
           dispatch(
             login({
-              email: username,
+              user: username,
             })
           );
 
