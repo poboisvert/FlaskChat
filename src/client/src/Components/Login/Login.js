@@ -7,6 +7,13 @@ import AuthService from '../../Hooks/auth-service';
 // Style
 import './Login.css';
 
+// Redux
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/userSlice';
+
+// Router
+import history from '../Shared/history';
+
 const required = (value) => {
   if (!value) {
     return (
@@ -30,6 +37,8 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+
+  const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -64,7 +73,7 @@ const Login = (props) => {
           // Forward to home page
           props.history.push('/');
           // Refresh page
-          window.location.reload();
+          //window.location.reload();
         },
         (error) => {
           // Aggregate to generate the error message
@@ -100,9 +109,13 @@ const Login = (props) => {
       AuthService.login(username, password).then(
         () => {
           // Forward to home page
+          dispatch(
+            login({
+              email: username,
+            })
+          );
+
           props.history.push('/');
-          // Refresh page
-          window.location.reload();
         },
         (error) => {
           // Aggregate to generate the error message
@@ -177,11 +190,6 @@ const Login = (props) => {
       </div>
     </div>
   );
-};
-
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
-  return { isSignedIn: 'user' };
 };
 
 export default Login;

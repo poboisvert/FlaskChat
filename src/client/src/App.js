@@ -10,9 +10,6 @@ import history from './history';
 
 import Login from './components/Login/Login';
 
-// Style
-// import "bootstrap/dist/css/bootstrap.min.css";
-
 function App() {
   return (
     <>
@@ -20,13 +17,13 @@ function App() {
         <div className='app__body'>
           <Router history={history}>
             <Switch>
-              <Route path='/listing/:id' component={MarketManager} />
-              <Route exact path='/listing' component={MarketManager} />
-              <Route path='/channel/:name' component={Home} />
-              <Route exact path='/account' component={Account} />
-              <Route exact path='/logout' component={Login} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/' component={Home} />
+              <Route path='/listing/:id' exact component={MarketManager} />
+              <Route path='/listing' exact component={MarketManager} />
+              <Route path='/channel/:name' exact component={Home} />
+              <Route path='/account' exact component={Account} />
+              <Route path='/logout' exact component={Login} />
+              <Route path='/login' exact component={Login} />
+              <Route path='/' exact component={Home} />
             </Switch>
           </Router>
         </div>
