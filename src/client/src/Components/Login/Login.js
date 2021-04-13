@@ -1,14 +1,16 @@
-import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import AuthService from "../../Hooks/auth-service";
-import "./Login.css";
+import React, { useState, useRef } from 'react';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import AuthService from '../../Hooks/auth-service';
+
+// Style
+import './Login.css';
 
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className='alert alert-danger' role='alert'>
         This field is required!
       </div>
     );
@@ -23,11 +25,11 @@ const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -48,7 +50,7 @@ const Login = (props) => {
     e.preventDefault();
 
     // Clear message & Activate loading
-    setMessage("");
+    setMessage('');
     setLoading(true);
 
     // Validate all field
@@ -60,7 +62,7 @@ const Login = (props) => {
       AuthService.register(username, email, password).then(
         () => {
           // Forward to home page
-          props.history.push("/");
+          props.history.push('/');
           // Refresh page
           window.location.reload();
         },
@@ -69,7 +71,7 @@ const Login = (props) => {
           console.log(error);
           // Turn off loading and set message
           setLoading(false);
-          setMessage("");
+          setMessage('');
         }
       );
     } else {
@@ -86,7 +88,7 @@ const Login = (props) => {
     e.preventDefault();
 
     // Clear message & Activate loading
-    setMessage("");
+    setMessage('');
     setLoading(true);
 
     // Validate all field
@@ -98,7 +100,7 @@ const Login = (props) => {
       AuthService.login(username, password).then(
         () => {
           // Forward to home page
-          props.history.push("/");
+          props.history.push('/');
           // Refresh page
           window.location.reload();
         },
@@ -122,59 +124,64 @@ const Login = (props) => {
   };
 
   return (
-    <div className="container">
-      <div className="login">
-        <img src="icon.svg" alt="Logo" />
+    <div className='container'>
+      <div className='login'>
+        <img src='icon.svg' alt='Logo' />
         <Form onSubmit={handleLogin} ref={form}>
           <Input
-            type="text"
-            placeholder="Email - Not Mandatory to Sign In"
-            className="form-control"
-            name="email"
+            type='text'
+            placeholder='Email - Not Mandatory to Sign In'
+            className='form-control'
+            name='email'
             value={email}
           />
           <Input
-            type="text"
-            placeholder="Username"
-            className="form-control"
-            name="username"
+            type='text'
+            placeholder='Username'
+            className='form-control'
+            name='username'
             value={username}
             onChange={onChangeUsername}
             validations={[required]}
           />
           <Input
-            type="password"
-            className="form-control"
-            name="password"
-            placeholder="Password"
+            type='password'
+            className='form-control'
+            name='password'
+            placeholder='Password'
             value={password}
             onChange={onChangePassword}
             validations={[required]}
           />
 
-          <div className="form-group">
-            <button className="sign-in" disabled={loading}>
+          <div className='form-group'>
+            <button className='sign-in' disabled={loading}>
               {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
+                <span className='spinner-border spinner-border-sm'></span>
               )}
               <span>Login</span>
             </button>
           </div>
 
           {message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
+            <div className='form-group'>
+              <div className='alert alert-danger' role='alert'>
                 {message}
               </div>
             </div>
           )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
 
           <span onClick={handleRegister}>Register</span>
         </Form>
       </div>
     </div>
   );
+};
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
+  return { isSignedIn: 'user' };
 };
 
 export default Login;
